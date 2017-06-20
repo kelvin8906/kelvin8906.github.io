@@ -136,6 +136,7 @@
 
 <script>
 var video = document.querySelector("#videoElement");
+var isPlaying = true;
  
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Not adding `{ audio: true }` since we only want video now
@@ -221,10 +222,15 @@ function draw(v,c,w,h) {
 }
 
 document.getElementById('save').addEventListener('click',function(e){
-	
-	draw(v,context,w,h);
-	
-	
+	if (!isPlaying) return;
+	// draw(v,context,w,h);
+	if (isPlaying) {
+	    video.pause();
+        isPlaying = false;
+    } else {
+        video.play();
+        isPlaying = true;
+    }
 });
 var fr;
 
