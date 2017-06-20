@@ -67,8 +67,8 @@
         min-width: 7.5rem;
     }
     #imgtag {
-        height: 7.5rem;
-        width: auto;
+        min-height: 7.5rem;
+        min-width: 7.5rem;
     }
     .wrapper {
         width: 7.5rem;
@@ -81,6 +81,7 @@
         left: 0;
         display: flex;
         justify-content: center;
+        align-items: center;
         height: 7.5rem;
         width: 7.5rem;
         opacity: 0.4;
@@ -225,6 +226,7 @@ document.getElementById('fileselect').addEventListener('change',function(e){
 	fr = new FileReader();
 	fr.onload = receivedText;
 	fr.readAsDataURL(f);
+    document.getElementById('image-wapper').style.display = 'block';
 })
 
 function receivedText() {        
