@@ -17,7 +17,7 @@
   </head>
   
 <body>
-<input id="fileselect" type="file" accept="image/*" capture="camera">
+<input style="display: none" id="fileselect" type="file" accept="image/*" capture="camera">
 <div id="container">
     <video autoplay="" id="videoElement">
      
@@ -53,7 +53,9 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         video.play();
     }, errBack);
 } else {
-    alert('no device found')
+    document.getElementById('container').addEventListener('click', function () {
+        document.getElementById('fileselect').click();
+    })
 }
 
 function errBack(e) {
@@ -86,6 +88,19 @@ document.getElementById('save').addEventListener('click',function(e){
 	
 	
 });
+var fr;
+
+document.getElementById('fileselect').addEventListener('change',function(e){
+	var f = sel.files[0];
+	
+	fr = new FileReader();
+	fr.onload = receivedText;
+	fr.readAsDataURL(f);
+})
+
+function receivedText() {        
+	imgtag.src = fr.result;
+} 
 </script>
 
 </body></html>
