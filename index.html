@@ -86,19 +86,31 @@
     .center-wrapper {
         display: block;
         text-align: center;
+        font-size: 0.3rem;
     }
-    .center-wrapper div {
+    .center-wrapper p {
+        margin-top: 0.9rem;
+    }
+    .center-wrapper .btn-confirm {
         display: inline-block;
         margin-top: 0.5rem;
         padding: 0.3rem 0.8rem;
         border-radius: 0.4rem;
-        border: 3px solid #F00;
-        font-size: 0.5rem;
+        border: 0.03rem solid #F00;
+        font-size: 0.4rem;
         background-color: white;
     }
-    .center-wrapper div:active {
+    .center-wrapper .btn-confirm:active {
         background-color: #f00;
         color: white;
+    }
+    .bottom-wrapper {
+        width: 7.5rem;
+        padding-bottom: 0.2rem;
+        position: fixed;
+        bottom: 0;
+        text-align: center;
+        font-size: 0.2rem;
     }
     </style>
   </head>
@@ -110,12 +122,14 @@
     <video autoplay="" id="videoElement">
      
     </video>
-    <div class="wrapper" style="display: none"><img id="imgtag" src="" alt="capture"></div>
 </div>
 
 <canvas style="display:none" id="canvas" width="500" height="375"></canvas>
-<div class="center-wrapper"><div id="save">确认</div></div>
+<div class="center-wrapper"><p>请将证件置于边框中央</p></div>
+<div class="center-wrapper"><div class="btn-confirm" id="save">获取卡片信息</div></div>
 
+    <div class="wrapper" style="display: none"><img id="imgtag" src="" alt="capture"></div>
+<div class="bottom-wrapper">Copy-right: Kelvin Wong</div>
 
 <script>
 var video = document.querySelector("#videoElement");
