@@ -91,7 +91,7 @@ document.getElementById('save').addEventListener('click',function(e){
 var fr;
 
 document.getElementById('fileselect').addEventListener('change',function(e){
-	var f = sel.files[0];
+	var f = document.getElementById('fileselect').files[0];
 	
 	fr = new FileReader();
 	fr.onload = receivedText;
