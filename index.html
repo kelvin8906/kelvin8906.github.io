@@ -11,7 +11,8 @@
     <meta http-equiv="Expires" content="0">
     <style>
     #container {
-        width: 100%
+        width: 100%;
+        min-height: 300px;
     }
     </style>
   </head>
@@ -24,7 +25,7 @@
     </video>
 </div>
 
-<canvas id="canvas" width="500" height="375"></canvas>
+<canvas style="display:none" id="canvas" width="500" height="375"></canvas>
 <input type="button" value="Save" id="save">
 
 <img id="imgtag" src="" width="500" height="375" alt="capture">
@@ -53,6 +54,8 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         video.play();
     }, errBack);
 } else {
+    document.getElementById('container').innerHTML = "点击这里";
+    document.getElementById('save').style.display = 'none';
     document.getElementById('container').addEventListener('click', function () {
         document.getElementById('fileselect').click();
     })
