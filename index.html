@@ -122,17 +122,17 @@
 <body>
 <input style="display: none" id="fileselect" type="file" accept="image/*" capture="camera">
 <div id="container">
-    <div class="mask"></div>
+    <div class="mask" id="mask"></div>
     <video autoplay="" id="videoElement">
      
     </video>
+    <div class="wrapper" id="image-wapper" style="display: none"><img id="imgtag" src="" alt="capture"></div>
 </div>
 
 <canvas style="display:none" id="canvas" width="500" height="375"></canvas>
 <div class="center-wrapper"><p>请将证件置于边框中央</p></div>
 <div class="center-wrapper"><div class="btn-confirm" id="save">获取卡片信息</div></div>
 
-    <div class="wrapper" style="display: none"><img id="imgtag" src="" alt="capture"></div>
 <div class="bottom-wrapper">Copy-right: Kelvin Wong</div>
 
 <script>
@@ -178,8 +178,8 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         video.play();
     }, errBack);
 } else {
-    document.getElementById('container').innerHTML = "点击这里";
-    document.getElementById('save').style.display = 'none';
+    document.getElementById('mask').innerHTML = "点击这里";
+    document.getElementById('videoElement').style.display = 'none'
     document.getElementById('container').addEventListener('click', function () {
         document.getElementById('fileselect').click();
     })
