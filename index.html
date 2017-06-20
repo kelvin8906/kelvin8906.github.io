@@ -66,11 +66,8 @@
         min-height: 7.5rem;
         min-width: 7.5rem;
     }
-    #imgtag.landscape {
-        height: 7.5rem;
-    }
-    #imgtag.portrait {
-        width: 7.5rem;
+    #imgtag {
+        background-size: contain;
     }
     .wrapper {
         width: 7.5rem;
@@ -228,19 +225,11 @@ document.getElementById('fileselect').addEventListener('change',function(e){
 	fr = new FileReader();
 	fr.onload = receivedText;
 	fr.readAsDataURL(f);
+    document.getElementById('image-wapper').style.display = 'block';
 })
 
 function receivedText() {        
-	imgtag.src = fr.result;
-    var imgWrap = document.getElementById('image-wapper');
-    imgWrap.style.display = 'block';
-    imgWrap.children[0].className = '';
-    var rect = imgWrap.children[0].getClientRects() || {};
-    if (rect.width > rect.height) {
-        imgWrap.children[0].className = 'landscape';
-    } else {
-        imgWrap.children[0].className = 'portrait';
-    }
+	imgtag.backgroundImage = fr.result;
 } 
 </script>
 
