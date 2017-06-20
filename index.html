@@ -222,7 +222,7 @@ function draw(v,c,w,h) {
 }
 
 document.getElementById('save').addEventListener('click',function(e){
-	if (!isPlaying) return;
+	if (!video) return;
 	// draw(v,context,w,h);
 	if (isPlaying) {
 	    video.pause();
