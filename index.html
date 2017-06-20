@@ -228,6 +228,10 @@ document.getElementById('fileselect').addEventListener('change',function(e){
 	fr = new FileReader();
 	fr.onload = receivedText;
 	fr.readAsDataURL(f);
+})
+
+function receivedText() {        
+	imgtag.src = fr.result;
     var imgWrap = document.getElementById('image-wapper');
     imgWrap.style.display = 'block';
     imgWrap.children[0].className = '';
@@ -237,10 +241,6 @@ document.getElementById('fileselect').addEventListener('change',function(e){
     } else {
         imgWrap.children[0].className = 'portrait';
     }
-})
-
-function receivedText() {        
-	imgtag.src = fr.result;
 } 
 </script>
 
