@@ -67,11 +67,6 @@
         min-width: 7.5rem;
     }
     #imgtag {
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        width: 7.5rem;
-        height: 7.5rem;
     }
     .wrapper {
         width: 7.5rem;
@@ -189,6 +184,16 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     })
 }
 
+imgtag.onload = function () {
+    imgtag.style.height = '';
+    imgtag.style.width = '';
+    if (imgtag.width > imgtag.height) {
+        imgtag.style.height = '7.5rem';
+    } else {
+        imgtag.style.width = '7.5rem';
+    }
+}
+
 function errBack(e) {
     console.log(e)
 }
@@ -233,7 +238,7 @@ document.getElementById('fileselect').addEventListener('change',function(e){
 })
 
 function receivedText() {        
-	imgtag.style.backgroundImage = 'url("' + fr.result + '")';
+	imgtag.src = fr.result;
 } 
 </script>
 
